@@ -14,15 +14,21 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
+
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
 
 class Sudoku {
     int population, generation;
+    vector<vector<int>> grid;
 
     public:
-        Sudoku(int population, int generation)
-            : population(population), generation(generation) {
-                srand(time(NULL));
-            }
+        Sudoku(const int& population = 0, const int& generation = 0);
+
+        void readSudokuPuzzle(const string& puzzle);
 };
 
 #endif
