@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <sstream>
 
 using std::vector;
 using std::cout;
@@ -23,12 +24,16 @@ using std::string;
 
 class Sudoku {
     int population, generation;
-    vector<vector<int>> grid;
+    vector<vector<char>> grid;
 
     public:
         Sudoku(const int& population = 0, const int& generation = 0);
 
-        void readSudokuPuzzle(const string& puzzle);
+        void fillGrid(const string& input);
+
+        void printGrid();
+
+        // void printGrid(const vector<vector<char>>& puzzle);
 };
 
 #endif
