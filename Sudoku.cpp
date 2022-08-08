@@ -21,12 +21,18 @@ void Sudoku::printGrid() {
             cout << "+-------+-------+-------+\n";
         cout << "| ";
         for (int j = 0; j < this->grid[i].size(); ++j) {
-            if (j % 3 == 0 && j != 0) {
-                cout << "| " << this->grid[i][j] << " ";
-            } else cout << this->grid[i][j] << " ";
+            if (j % 3 == 0 && j != 0) cout << "| " << this->grid[i][j] << " ";
+            else cout << this->grid[i][j] << " ";
         }
         cout << "|\n";
     }
 }
 
-void printGrid(const vector<vector<char>>& puzzle) {}
+ostream& operator << (ostream& os, Sudoku& sudoku) {
+    // os << 
+    sudoku.printGrid();
+}
+
+istream& operator >> (istream& input, Sudoku& sudoku) {
+    // input >> 
+}
