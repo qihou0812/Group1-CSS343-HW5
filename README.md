@@ -1,6 +1,6 @@
 # Group 1  
 
-Members:  
+Members:
 * Cuc Doan  
 * Qihou Zhang  
 * Kyle Huang
