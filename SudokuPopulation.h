@@ -1,5 +1,5 @@
 /**
- * @file Fitness.h
+ * @file SudokuPopulation.h
  * @author Qihou Zhang, Cuc Doan, Kyle Huang
  * @brief 
  * @version 0.1
@@ -8,17 +8,16 @@
  */
 
 #pragma once
-#ifndef FITNESS_H
-#define FITNESS_H
+#ifndef SUDOKUPOPULATION_H
+#define SUDOKUPOPULATION_H
 
 #include <iostream>
+#include "Population.h"
 
-class Fitness {
-    protected:
-        
+class SudokuPopulation : public Population {
 
     public:
-        Fitness();
+        SudokuPopulation();
 };
 
 #endif

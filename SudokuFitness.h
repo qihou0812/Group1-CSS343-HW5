@@ -1,5 +1,5 @@
 /**
- * @file Fitness.h
+ * @file SudokuFitness.h
  * @author Qihou Zhang, Cuc Doan, Kyle Huang
  * @brief 
  * @version 0.1
@@ -8,17 +8,16 @@
  */
 
 #pragma once
-#ifndef FITNESS_H
-#define FITNESS_H
+#ifndef SUDOKUFITNESS_H
+#define SUDOKUFITNESS_H
 
 #include <iostream>
+#include "Fitness.h"
 
-class Fitness {
-    protected:
-        
+class SudokuFitness : public Fitness {
 
     public:
-        Fitness();
+        SudokuFitness();
 };
 
 #endif

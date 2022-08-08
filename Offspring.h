@@ -1,5 +1,5 @@
 /**
- * @file Fitness.h
+ * @file Offspring.h
  * @author Qihou Zhang, Cuc Doan, Kyle Huang
  * @brief 
  * @version 0.1
@@ -8,17 +8,17 @@
  */
 
 #pragma once
-#ifndef FITNESS_H
-#define FITNESS_H
+#ifndef OFFSPRING_H
+#define OFFSPRING_H
 
 #include <iostream>
 
-class Fitness {
+class Offspring {
     protected:
         
 
     public:
-        Fitness();
+        Offspring();
 };
 
 #endif

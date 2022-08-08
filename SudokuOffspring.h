@@ -1,5 +1,5 @@
 /**
- * @file Fitness.h
+ * @file SudokuOffspring.h
  * @author Qihou Zhang, Cuc Doan, Kyle Huang
  * @brief 
  * @version 0.1
@@ -8,17 +8,18 @@
  */
 
 #pragma once
-#ifndef FITNESS_H
-#define FITNESS_H
+#ifndef SUDOKUOFFSPRING_H
+#define SUDOKUOFFSPRING_H
 
 #include <iostream>
+#include "Puzzle.h"
+#include "Offspring.h"
 
-class Fitness {
-    protected:
-        
+class SudokuOffspring : public Offspring {
+    
 
     public:
-        Fitness();
+        SudokuOffspring();
 };
 
 #endif
