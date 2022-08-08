@@ -1,4 +1,5 @@
 #include "Sudoku.h"
+#include "Population.h"
 
 using namespace std;
 
@@ -16,5 +17,6 @@ int main(int arg, char **argv) {
         exit(0);
     }
 
-    Sudoku puzzleSolver(population, generation);
+    Population population(population, generation);
+    // population calls puzzle factory
 }

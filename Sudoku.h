@@ -11,29 +11,18 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <vector>
-#include <sstream>
+#include "Puzzle.h"
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-class Sudoku {
-    int population, generation;
-    vector<vector<char>> grid;
-
+class Sudoku : public Puzzle {
     public:
-        Sudoku(const int& population = 0, const int& generation = 0);
-
-        void fillGrid(const string& input);
+        Sudoku();
 
         void printGrid();
-
-        // void printGrid(const vector<vector<char>>& puzzle);
 };
 
 #endif
