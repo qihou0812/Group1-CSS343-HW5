@@ -17,12 +17,18 @@ using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::ostream;
+using std::istream;
 
 class Sudoku : public Puzzle {
     public:
         Sudoku();
 
         void printGrid();
+
+        friend ostream& operator << (ostream& os, Sudoku& sudoku);
+
+        friend istream& operator << (istream& os, Sudoku& sudoku);
 };
 
 #endif
