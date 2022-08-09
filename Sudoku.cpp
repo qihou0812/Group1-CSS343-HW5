@@ -24,6 +24,8 @@ string Sudoku::printGrid() {
         for (int j = 0; j < this->grid[i].size(); ++j) {
             if (j % 3 == 0 && j != 0) store += "| " + this->grid[i][j] + ' ';
             else store += this->grid[i][j] + " ";
+            if (j % 3 == 0 && j != 0) cout << "| " << this->grid[i][j] << " ";
+            else cout << this->grid[i][j] << " ";
         }
         store += "|\n";
         return store;
@@ -38,4 +40,10 @@ ostream& operator << (ostream& os, Sudoku& sudoku) {
 istream& operator >> (istream& input, Sudoku& sudoku) {
     input >> std::ws >> sudoku.puzzleText;
     return input;
+    // os << 
+    sudoku.printGrid();
+}
+
+istream& operator >> (istream& input, Sudoku& sudoku) {
+    // input >> 
 }
