@@ -24,11 +24,15 @@ class Sudoku : public Puzzle {
     public:
         Sudoku();
 
-        void printGrid();
+        string printGrid();
 
         friend ostream& operator << (ostream& os, Sudoku& sudoku);
 
-        friend istream& operator << (istream& os, Sudoku& sudoku);
+        friend istream& operator >> (istream& os, Sudoku& sudoku);
+
+        friend ostream& operator << (ostream& os, Sudoku& sudoku);
+
+        friend istream& operator >> (istream& os, Sudoku& sudoku);
 };
 
 #endif
