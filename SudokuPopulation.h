@@ -1,23 +1,31 @@
-/**
- * @file SudokuPopulation.h
- * @author Qihou Zhang, Cuc Doan, Kyle Huang
- * @brief 
- * @version 0.1
- * @date 2022-08-07
- * @copyright Copyright (c) 2022
- */
+#ifndef SUDOKU_POPULATION_H
+#define SUDOKU_POPULATION_H
 
-#pragma once
-#ifndef SUDOKUPOPULATION_H
-#define SUDOKUPOPULATION_H
-
-#include <iostream>
+#include <vector>
+using namespace std;
 #include "Population.h"
+#include "Sudoku.h"
+#include "SudokuFitness.h"
+#include "SudokuFactory.h"
 
-class SudokuPopulation : public Population {
-
-    public:
-        SudokuPopulation();
+class SudokuPopulation: public Population
+{
+public:
+    // constructor
+    SudokuPopulation(int size, Sudoku* sudoku);
+    virtual ~SudokuPopulation();
+    // eliminates the X% least fit members of a generation
+    void cull(int X);
+    // produces a new generation
+    void newGeneration();
+    // return the fitness of the best Puzzle in the current generation
+    int bestFitness();
+    // return the Puzzle with the highest fitness
+    Puzzle* bestIndividual();
+private:
+    int N;
+    Fitness* fitness;
+    PuzzleFactory* factory;
 };
 
-#endif
+#endif // SUDOKU_POPULATION_H

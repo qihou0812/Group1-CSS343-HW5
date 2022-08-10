@@ -1,49 +1,85 @@
 #include "Sudoku.h"
-using namespace std;
+#include <ctype.h>
 
-/**
- * @brief 
- * 
- * @param population 
- * @param generation 
- */
-Sudoku::Sudoku() {
-
-}
-
-/**
- * @brief 
- * 
- */
-string Sudoku::printGrid() {
-    string store {};
-    for (int i = 0; i < this->grid.size(); i++) {
-        if (i % 3 == 0 || i == 0 || i == this->grid.size() - 1)
-            store += "+-------+-------+-------+\n";
-        store += "| ";
-        for (int j = 0; j < this->grid[i].size(); ++j) {
-            if (j % 3 == 0 && j != 0) store += "| " + this->grid[i][j] + ' ';
-            else store += this->grid[i][j] + " ";
-            if (j % 3 == 0 && j != 0) cout << "| " << this->grid[i][j] << " ";
-            else cout << this->grid[i][j] << " ";
+Sudoku::Sudoku()
+        :fitness(0) {
+    // initiate the grid
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            grid[i][j] = 0;
+            mask[i][j] = false;
         }
-        store += "|\n";
-        return store;
     }
 }
+// copy constructor
+Sudoku::Sudoku(Sudoku& sudoku) {
+    setFitness(sudoku.getFitness());
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            grid[i][j] = sudoku.getValueAt(i, j);
+            mask[i][j] = sudoku.isVariableNumber(i, j);
+        }
+    }
+}
+bool Sudoku::isVariableNumber(int i, int j) {
+    return mask[i][j];
+}
 
-ostream& operator << (ostream& os, Sudoku& sudoku) {
-    os << sudoku.printGrid();
+void Sudoku::setVariableNumber(int i, int j) {
+    mask[i][j] = true;
+}
+
+int Sudoku::getValueAt(int i, int j) {
+    return grid[i][j];
+}
+
+void Sudoku::setValueAt(int i, int j, int value) {
+    grid[i][j] = value;
+}
+
+int Sudoku::getFitness() {
+    return fitness;
+}
+
+void Sudoku::setFitness(int fitness) {
+    this->fitness = fitness;
+}
+
+// output sudoku to standard output
+ostream& operator<<(ostream& os, Sudoku& puzzle) {
+    int value;
+
+    for (int i = 0; i < 9; i++) {
+        if (i % 3 == 0) {
+            os << "+-------+-------+-------+" << endl;
+        }
+        for (int j = 0; j < 9; j++) {
+            if (j % 3 == 0) {
+                os << "| ";
+            }
+            value = puzzle.getValueAt(i, j);
+            os << value << " ";
+        }
+        os << "|" << endl;
+
+    }
+    os << "+-------+-------+-------+" << endl;
     return os;
 }
 
-istream& operator >> (istream& input, Sudoku& sudoku) {
-    input >> std::ws >> sudoku.puzzleText;
-    return input;
-    // os << 
-    sudoku.printGrid();
-}
-
-istream& operator >> (istream& input, Sudoku& sudoku) {
-    // input >> 
+// read the sudoku from standard input
+istream& operator>>(istream& is, Sudoku& puzzle) {
+    int value;
+    char ch;
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            is.get(ch);
+            while (!isdigit(ch)) {
+                is.get(ch);
+            }
+            value = ch - '0';
+            puzzle.setValueAt(i, j, value);
+        }
+    }
+    return is;
 }

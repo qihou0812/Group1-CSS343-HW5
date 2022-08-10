@@ -1,25 +1,21 @@
-/**
- * @file SudokuFactory.h
- * @author Qihou Zhang, Cuc Doan, Kyle Huang
- * @brief 
- * @version 0.1
- * @date 2022-08-07
- * @copyright Copyright (c) 2022
- */
+#ifndef SUDOKU_FACTORY_H
+#define SUDOKU_FACTORY_H
 
-#pragma once
-#ifndef SUDOKUFACTORY_H
-#define SUDOKUFACTORY_H
-
-#include <iostream>
 #include "PuzzleFactory.h"
-#include "Offspring.h"
-class SudokuFactory : public PuzzleFactory {
+#include "SudokuOffspring.h"
 
-    public:
-        SudokuFactory();
-    private:
-	SudokuOffspring* sudokuOffSpring;
+class SudokuFactory: public PuzzleFactory
+{
+public:
+    SudokuFactory();
+    ~SudokuFactory();
+    void setCurrentPuzzle(Puzzle*);
+    Puzzle* createPuzzle() override;
+
+private:
+    Puzzle* puzzle;
+    Offspring* offSpring;
 };
 
-#endif
+#endif // SUDOKU_FACTORY_H
+
