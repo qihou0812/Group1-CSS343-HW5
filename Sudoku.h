@@ -25,10 +25,11 @@ class Sudoku : public Puzzle {
         Sudoku();
 
         void printGrid();
-
+:
         friend ostream& operator << (ostream& os, Sudoku& sudoku);
 
         friend istream& operator << (istream& os, Sudoku& sudoku);
 };
 
 #endif
+

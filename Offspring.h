@@ -12,6 +12,7 @@
 #define OFFSPRING_H
 
 #include <iostream>
+#include "Puzzle.h"
 
 class Offspring {
     protected:
@@ -19,6 +20,7 @@ class Offspring {
 
     public:
         Offspring();
+	Puzzle* makeOffSpring(Puzzle* puzzle);
 };
 
 #endif

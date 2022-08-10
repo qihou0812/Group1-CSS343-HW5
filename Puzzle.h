@@ -22,25 +22,11 @@ using std::vector;
 using std::cout;
 using std::endl;
 
+// Puzzle is an interface that only defines operator >> and <<
 class Puzzle {
-    protected:
-        string puzzleText {};
-        vector<vector<char>> grid {};
-
-    public:
-        Puzzle(const string& input = "");
-
-        Puzzle(const vector<vector<char>>& puzzle);
-
-        virtual void setPuzzle(const string& input);
-
-        virtual void setPuzzle(const vector<vector<char>>& puzzle);
-
-        virtual string getPuzzle() const;
-
-        virtual vector<vector<char>> getPuzzle();
-
-        virtual void fillGrid();
+	virtual operator<< () const = 0;
+	virtual operator>> () const = 0;
+   
 };
 
 #endif
