@@ -20,6 +20,7 @@ class PuzzleFactory {
 
     public:
         PuzzleFactory();
+	Puzzle* createPuzzle();
 };
 
 #endif

@@ -23,12 +23,11 @@ using std::istream;
 class Sudoku : public Puzzle {
     public:
         Sudoku();
-
-        string printGrid();
-
+        
         friend ostream& operator << (ostream& os, Sudoku& sudoku);
 
         friend istream& operator >> (istream& os, Sudoku& sudoku);
 };
 
 #endif
+

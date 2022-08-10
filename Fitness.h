@@ -12,6 +12,7 @@
 #define FITNESS_H
 
 #include <iostream>
+#include "Puzzle.h"
 
 class Fitness {
     protected:
@@ -19,6 +20,7 @@ class Fitness {
 
     public:
         Fitness();
+	virtual int howFit(Puzzle* puzzle) = 0;
 };
 
 #endif

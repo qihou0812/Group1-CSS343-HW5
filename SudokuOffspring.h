@@ -20,6 +20,7 @@ class SudokuOffspring : public Offspring {
 
     public:
         SudokuOffspring();
+	Puzzle* makeOffSpring (Puzzle* puzzle);
 };
 
 #endif

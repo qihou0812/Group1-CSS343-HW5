@@ -21,18 +21,14 @@ using std::deque;
 class Population {
     protected:
         int population, generation;
-        deque<Puzzle> puzzleList;
+        vector<Puzzle*> puzzleList;
 
     public:
         Population(int population, int generation);
-
-        void addPuzzle(const Puzzle puzzle);
-
-        void removePuzzle(int index, const Puzzle puzzle);
-
-        void removeFirstPuzzle();
-
-        void removeLastPuzzle();
+	void cull (int X);// remove least fitness puzzle
+	void newGeneration();
+	int bestFitness();
+	Puzzle* bestIndividual();
 };
 
 #endif

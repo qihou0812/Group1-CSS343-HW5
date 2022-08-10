@@ -13,11 +13,13 @@
 
 #include <iostream>
 #include "PuzzleFactory.h"
-
+#include "Offspring.h"
 class SudokuFactory : public PuzzleFactory {
 
     public:
         SudokuFactory();
+    private:
+	SudokuOffspring* sudokuOffSpring;
 };
 
 #endif
