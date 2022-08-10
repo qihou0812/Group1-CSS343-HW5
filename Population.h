@@ -1,34 +1,23 @@
-/**
- * @file Population.h
- * @author Qihou Zhang, Cuc Doan, Kyle Huang
- * @brief 
- * @version 0.1
- * @date 2022-08-07
- * @copyright Copyright (c) 2022
- */
-
-#pragma once
 #ifndef POPULATION_H
 #define POPULATION_H
 
-#include <iostream>
 #include "Puzzle.h"
 
-#include <deque>
-
-using std::deque;
-
-class Population {
-    protected:
-        int population, generation;
-        vector<Puzzle*> puzzleList;
-
-    public:
-        Population(int population, int generation);
-	void cull (int X);// remove least fitness puzzle
-	void newGeneration();
-	int bestFitness();
-	Puzzle* bestIndividual();
+class Population
+{
+public:
+    virtual ~Population(){}
+    // eliminates the X% least fit members of a generation
+    virtual void cull(int X) = 0;
+    // produces a new generation
+    virtual void newGeneration() = 0;
+    // return the fitness of the best Puzzle in the current generation
+    virtual int bestFitness() = 0;
+    // return the Puzzle with the highest fitness
+    virtual Puzzle* bestIndividual() = 0;
+protected:
+    vector<Puzzle*> puzzles;
 };
 
-#endif
+#endif // POPULATION_H
+
