@@ -15,20 +15,31 @@ Sudoku::Sudoku() {
  * @brief 
  * 
  */
-void Sudoku::printGrid() {
+string Sudoku::printGrid() {
+    string store {};
     for (int i = 0; i < this->grid.size(); i++) {
         if (i % 3 == 0 || i == 0 || i == this->grid.size() - 1)
-            cout << "+-------+-------+-------+\n";
-        cout << "| ";
+            store += "+-------+-------+-------+\n";
+        store += "| ";
         for (int j = 0; j < this->grid[i].size(); ++j) {
+            if (j % 3 == 0 && j != 0) store += "| " + this->grid[i][j] + ' ';
+            else store += this->grid[i][j] + " ";
             if (j % 3 == 0 && j != 0) cout << "| " << this->grid[i][j] << " ";
             else cout << this->grid[i][j] << " ";
         }
-        cout << "|\n";
+        store += "|\n";
+        return store;
     }
 }
 
 ostream& operator << (ostream& os, Sudoku& sudoku) {
+    os << sudoku.printGrid();
+    return os;
+}
+
+istream& operator >> (istream& input, Sudoku& sudoku) {
+    input >> std::ws >> sudoku.puzzleText;
+    return input;
     // os << 
     sudoku.printGrid();
 }
