@@ -1,0 +1,17 @@
+1. Brief analysis
+Genetic algorithm is a non-deterministic algorithm. The algorithm is random and can
+only find the solution with a certain probability. Therefore, sometimes it is unreliable.
+When the puzzle is easy, the algorithm easily finds the solution. It may take several
+hundred generations. If the puzzle is hard, it’s hard to find the solution. Although I make
+the algorithm iterates for 10k generations, it doesn’t still find the solution.
+In some time, GA can not find the solution, and it only find the best solution in some
+extent. For some puzzle, one running of the algorithm can find the solution, but another
+running may not find the solution.
+2. Build and Run
+Build:
+g++ -std=c++11 -o solver *.cpp
+Run:
+./solver 300 1000
+First number is the size of the population. Second number is the maximum number of
+generations.
+3.Issues
