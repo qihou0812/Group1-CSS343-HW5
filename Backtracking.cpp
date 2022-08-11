@@ -14,29 +14,47 @@ class Sudoku {
     SudokuElement** grid {nullptr};
     string puzzleText {};
 
-    bool checkCell(int row, int col, int num) {
-        // check row
-        for (int i = 0; i < SIZE; i++)
-            if (this->grid[row][i].value == num) return false;
-
-        // check column
-        for (int i = 0; i < SIZE; i++)
-            if (this->grid[i][col].value == num) return false;
-
-        // check box
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-
+    // referenced from Qihou
+    bool backtrack() {
+        for (int row = 0; row < SIZE; ++row) {
+            for (int col = 0; col < SIZE; ++col) {
+                if (this->grid[row][col].isValid) continue;
+                for (int num = 1; num < SIZE; ++num) {
+                    if (checkNum(row, col, num)) {
+                        this->grid[row][col].isValid = true;
+                        this->grid[row][col].value = num;
+                        if (backtrack()) return true;
+                        this->grid[row][col].value = 0;
+                        this->grid[row][col].isValid = false;
+                    }
+                }
+                return false;
             }
         }
 
         return true;
     }
 
+    bool checkNum(int row, int col, int num) {
+        for (int i = 0; i < SIZE; i++) {
+            // check row
+            if (this->grid[i][col].value == num ||
+            // check column
+            this->grid[row][i].value == num ||
+            // check block made by Qihou
+            this->grid[(row/3)*3+i/3][(col/3)*3+i%3].value == num ||
+            // check for invalid cell value
+            this->grid[row][col].value == 0)
+                return false;
+        }
+        this->grid[row][col].isValid = true;
+        return true;
+    }
+
     void clearSudokuGrid() {
         if (this->grid != nullptr) {
             for (int i = 0; i < SIZE; ++i) {
-                if (this->grid[i] != nullptr) delete [] this->grid[i];
+                delete [] this->grid[i];
                 this->grid = nullptr;
             }
 
@@ -45,19 +63,14 @@ class Sudoku {
         }
     }
 
-    void createGrid() {
-        if (this->grid == nullptr) this->grid = new SudokuElement*[SIZE];
-        for (int i = 0; i < SIZE; i++)
-            this->grid[i] = new SudokuElement[SIZE];
-    }
-
     void createAndFillGrid() {
-        this->createGrid();
+        if (this->grid == nullptr) this->grid = new SudokuElement*[SIZE];
         stringstream ss(this->puzzleText);
         vector<string> store;
         string temp {};
         while (ss >> temp) store.push_back(temp);
         for (int i = 0; i < SIZE; i++) {
+            this->grid[i] = new SudokuElement[SIZE];
             for (int j = 0; j < SIZE; j++) {
                 try {
                     this->grid[i][j].value = store[i][j] - '0';
@@ -76,6 +89,13 @@ class Sudoku {
             getline(cin >> ws, puzzle);
             this->puzzleText = puzzle;
             this->createAndFillGrid();
+            cout << "Start:\n";
+            this->printGrid();
+            if (this->backtrack()) {
+                cout << "Sudoku Solved:\n";
+                this->printGrid();
+            }
+            else cout << "Sudoku not solved\n";
         }
 
         ~Sudoku() {
@@ -100,5 +120,4 @@ class Sudoku {
 
 int main() {
     Sudoku sudoku;
-    sudoku.printGrid();
 }
