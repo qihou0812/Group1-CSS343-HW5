@@ -12,6 +12,7 @@ Puzzle* SudokuOffspring::makeOffSpring(Puzzle* puzzle, Puzzle* original_puzzle)
     if (!original_soduku) {
         throw std::runtime_error("The original puzzle is not a Sudoku");
     }
+<<<<<<< HEAD
     vector<vector<char>> grid = res->getGrid();
     vector<vector<char>> original_grid = original_soduku->getGrid();
     for (int i = 0; i < 9; i++) {
@@ -24,6 +25,9 @@ Puzzle* SudokuOffspring::makeOffSpring(Puzzle* puzzle, Puzzle* original_puzzle)
             }
         }
     }
+=======
+    
+>>>>>>> cdbfccbd430732e56f812e24f0a2c29fdbf68ec6
 
     return res;
 }
