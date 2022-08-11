@@ -14,13 +14,14 @@
 #include <iostream>
 #include "Puzzle.h"
 #include "Offspring.h"
+#include "Sudoku.h"
 
 class SudokuOffspring : public Offspring {
-    
+    private:
 
     public:
         SudokuOffspring();
-	Puzzle* makeOffSpring (Puzzle* puzzle);
+	    Puzzle* makeOffSpring (Puzzle* puzzle, Puzzle* original_puzzle);
 };
 
 #endif

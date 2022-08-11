@@ -14,6 +14,7 @@
 #include <iostream>
 #include "Fitness.h"
 #include "Puzzle.h"
+#include "Sudoku.h"
 
 class SudokuFitness : public Fitness {
 
