@@ -24,7 +24,7 @@ class Population {
         vector<Puzzle*> puzzleList;
 
     public:
-        Population(int population, int generation);
+    Population(int population, int generation);
 	void cull (int X);// remove least fitness puzzle
 	void newGeneration();
 	int bestFitness();
