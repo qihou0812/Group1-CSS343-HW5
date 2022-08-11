@@ -15,12 +15,9 @@
 #include "Puzzle.h"
 
 class Offspring {
-    protected:
-        
-
-    public:
-        Offspring();
-	Puzzle* makeOffSpring(Puzzle* puzzle);
+public:
+    Offspring();
+	virtual Puzzle* makeOffSpring(Puzzle* puzzle) = 0;
 };
 
 #endif

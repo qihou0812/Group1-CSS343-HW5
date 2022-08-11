@@ -28,6 +28,14 @@ vector<vector<char>>& Sudoku::getGrid()
     return grid;
 }
 
+int Sudoku::getFitness()
+{
+    SudokuFitness* sudoku_fitness;
+    int res = sudoku_fitness->howFit(this);
+    fitness_level = res;
+    return res;
+}
+
 /**
  * @brief 
  * 

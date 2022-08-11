@@ -15,12 +15,9 @@
 #include "Puzzle.h"
 
 class PuzzleFactory {
-    protected:
-        
-
     public:
-        PuzzleFactory();
-	Puzzle* createPuzzle();
+    PuzzleFactory();
+	virtual Puzzle* createPuzzle() = 0;
 };
 
 #endif

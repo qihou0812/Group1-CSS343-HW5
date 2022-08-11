@@ -19,7 +19,7 @@
 class SudokuFitness : public Fitness {
 
     public:
-        SudokuFitness();
+    SudokuFitness();
 	int howFit(Puzzle* puzzle);
 };
 
