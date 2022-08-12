@@ -16,7 +16,7 @@
 
 class Offspring {
 public:
-    Offspring();
+	Offspring() {};
 	virtual Puzzle* makeOffSpring(Puzzle* puzzle) = 0;
 };
 

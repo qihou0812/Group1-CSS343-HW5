@@ -6,7 +6,8 @@ void SudokuPopulation::cull()
 {
 	auto comp = [&](Sudoku* a, Sudoku* b) { return a->getFitness() >b->getFitness(); };
 	priority_queue <Sudoku*, vector<Sudoku*>, decltype(comp)> pq(comp);
-	for (auto temp : puzzleList) {
+	for (auto puzzle : puzzleList) {
+		Sudoku* temp = dynamic_cast<Sudoku*>(puzzle);
 		pq.push(temp);
 		if (pq.size() > population) {
 			Sudoku* cur = pq.top();
