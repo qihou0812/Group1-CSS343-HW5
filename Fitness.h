@@ -15,11 +15,8 @@
 #include "Puzzle.h"
 
 class Fitness {
-    protected:
-        
-
     public:
-        Fitness();
+    Fitness();
 	virtual int howFit(Puzzle* puzzle) = 0;
 };
 

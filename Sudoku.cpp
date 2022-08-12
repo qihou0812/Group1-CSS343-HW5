@@ -2,13 +2,38 @@
 using namespace std;
 
 /**
- * @brief 
- * 
- * @param population 
- * @param generation 
+ * @brief
+ *
+ * @param population
+ * @param generation
  */
 Sudoku::Sudoku() {
 
+}
+
+void Sudoku::createGrid(string input)
+{
+    int pos = 0;
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9); j++){
+            grid[i][j] = input[pos];
+            pos++;
+
+        }
+    }
+}
+
+vector<vector<char>>& Sudoku::getGrid()
+{
+    return grid;
+}
+
+int Sudoku::getFitness()
+{
+    SudokuFitness* sudoku_fitness;
+    int res = sudoku_fitness->howFit(this);
+    fitness_level = res;
+    return res;
 }
 
 /**

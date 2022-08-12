@@ -12,6 +12,8 @@
 #define SUDOKU_H
 
 #include "Puzzle.h"
+#include "SudokuFitness.h"
+#include <string>
 
 using std::vector;
 using std::cout;
@@ -21,12 +23,21 @@ using std::ostream;
 using std::istream;
 
 class Sudoku : public Puzzle {
-    public:
-        Sudoku();
+private:
+    vector<vector<char>> grid;
+    int fitness_level;
+    
+public:
+    Sudoku();
         
-        friend ostream& operator << (ostream& os, Sudoku& sudoku);
+    friend ostream& operator << (ostream& os, const Sudoku& sudoku);
 
-        friend istream& operator >> (istream& os, Sudoku& sudoku);
+    friend istream& operator >> (istream& os, Sudoku& sudoku);
+
+    void createGrid(string input);
+    vector<vector<char>>& getGrid();
+    int getFitness();
+
 };
 
 #endif

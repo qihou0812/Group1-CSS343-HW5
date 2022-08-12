@@ -14,12 +14,16 @@
 #include <iostream>
 #include "PuzzleFactory.h"
 #include "Offspring.h"
+#include "Sudoku.h"
+#include <string>
 class SudokuFactory : public PuzzleFactory {
 
     public:
-        SudokuFactory();
+        SudokuFactory(SudokuOffspring* sudokuOffSpring, Sudoku* sudoku);
+        Puzzle* createPuzzle();
     private:
 	SudokuOffspring* sudokuOffSpring;
+    Sudoku* default_sudoku;
 };
 
 #endif

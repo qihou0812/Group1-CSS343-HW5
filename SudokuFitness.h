@@ -14,11 +14,12 @@
 #include <iostream>
 #include "Fitness.h"
 #include "Puzzle.h"
+#include "Sudoku.h"
 
 class SudokuFitness : public Fitness {
 
     public:
-        SudokuFitness();
+    SudokuFitness();
 	int howFit(Puzzle* puzzle);
 };
 

@@ -13,11 +13,20 @@
 
 #include <iostream>
 #include "Population.h"
+#include "Sudoku.h"
+#include "SudokuOffspring.h"
+#include<vector>
 
 class SudokuPopulation : public Population {
-
-    public:
-        SudokuPopulation();
+	private vector<Puzzle*> mostFitness; // store the most fit results after multiple generations.
+	private Sudoku* original_sudoku;
+	private SudokuOffSpring* sudoku_off_spring;
+public:
+    SudokuPopulation();
+	void cull();// remove least fitness puzzle
+	void newGeneration();
+	int bestFitness();
+	Puzzle* bestIndividual;
 };
 
 #endif

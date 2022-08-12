@@ -24,8 +24,10 @@ using std::endl;
 
 // Puzzle is an interface that only defines operator >> and <<
 class Puzzle {
-	virtual operator<< () const = 0;
-	virtual operator>> () const = 0;
+	int fitnessLevel;
+	virtual friend ostream& operator << (ostream& os, const Sudoku& sudoku) = 0;
+
+	virtual friend istream& operator >> (istream& os, Sudoku& sudoku) = 0;
    
 };
 
