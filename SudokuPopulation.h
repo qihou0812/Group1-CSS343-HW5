@@ -18,7 +18,6 @@
 #include<vector>
 
 class SudokuPopulation : public Population {
-	private vector<Puzzle*> mostFitness; // store the most fit results after multiple generations.
 	private Sudoku* original_sudoku;
 	private SudokuOffSpring* sudoku_off_spring;
 public:

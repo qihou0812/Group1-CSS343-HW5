@@ -29,7 +29,8 @@ class Population {
 	virtual void cull() = 0;// remove least fitness puzzle
 	virtual void newGeneration() = 0;
 	virtual int bestFitness() = 0;
-	virtual Puzzle* bestIndividual();
+	virtual Puzzle* bestIndividual() = 0;
+
 };
 
 #endif
