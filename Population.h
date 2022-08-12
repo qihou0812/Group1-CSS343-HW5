@@ -30,6 +30,7 @@ class Population {
 	virtual void newGeneration() = 0;
 	virtual int bestFitness() = 0;
 	virtual Puzzle* bestIndividual() = 0;
+
 };
 
 #endif
