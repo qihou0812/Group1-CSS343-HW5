@@ -1,6 +1,16 @@
-﻿#include "Sudoku.h"
+﻿/**
+ * @file Sudoku.cpp
+ * @author Qihou Zhang, Cuc Doan, and Kyle Huang
+ * @brief Sudoku concrete class (implementation)
+ * @version 3.5
+ * @date 2022-07-28
+ * @copyright Copyright (c) 2022
+ */
+
+#include "Sudoku.h"
 #include <ctype.h>
 
+// default constructor
 Sudoku::Sudoku()
 	:fitness(0) {
 	// initiate the grid
@@ -21,26 +31,33 @@ Sudoku::Sudoku(Sudoku& sudoku) {
 		}
 	}
 }
+
+// returns if it is a variable number of mask 2D array
 bool Sudoku::isVariableNumber(int i, int j) {
 	return mask[i][j];
 }
 
+// set variable number of mask 2D array
 void Sudoku::setVariableNumber(int i, int j) {
 	mask[i][j] = true;
 }
 
+// get value of grid
 int Sudoku::getValueAt(int i, int j) {
 	return grid[i][j];
 }
 
+// set value of grid
 void Sudoku::setValueAt(int i, int j, int value) {
 	grid[i][j] = value;
 }
 
+// get fitness score
 int Sudoku::getFitness() {
 	return fitness;
 }
 
+// set fitness score
 void Sudoku::setFitness(int fitness) {
 	this->fitness = fitness;
 }
