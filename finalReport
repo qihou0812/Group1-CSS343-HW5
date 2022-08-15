@@ -1,0 +1,125 @@
+1. Brief analysis
+Genetic algorithm is a non-deterministic algorithm. The algorithm is random and can
+only find the solution with a certain probability. Therefore, sometimes it is unreliable.
+When the puzzle is easy, the algorithm easily finds the solution. It may take several
+hundred generations. If the puzzle is hard, it’s hard to find the solution. Although I make
+the algorithm iterates for 10k generations, it doesn’t still find the solution.
+In some time, GA can not find the solution, and it only find the best solution in some
+extent. For some puzzle, one running of the algorithm can find the solution, but another
+running may not find the solution.
+2. Build and Run
+Build:
+g++ -std=c++11 -o solver *.cpp
+Run:
+./solver 300 1000
+First number is the size of the population. Second number is the maximum number of
+generations.
+3.Issues
+
+
+
+
+
+
+
+
+
+qihou@csslab1h:~$ g++ -std=c++11 *.cpp -o solver
+qihou@csslab1h:~$ ls
+Driver.cpp   finalReport.txt  Offspring.h   PROJECT-README.md  Puzzle.h   solver      SudokuFactory.cpp  SudokuFitness.cpp  Sudoku.h             SudokuOffspring.h     SudokuPopulation.h
+finalReport  Fitness.h        Population.h  PuzzleFactory.h    README.md  Sudoku.cpp  SudokuFactory.h    SudokuFitness.h    SudokuOffspring.cpp  SudokuPopulation.cpp
+qihou@csslab1h:~$ ./solver 300 1000
+059 826 731 001 300 295 702 519 864 547 200 689 803 764 102 126 905 300 375 198 426 214 653 978 068 472 513
++-------+-------+-------+
+| 0 5 9 | 8 2 6 | 7 3 1 |
+| 0 0 1 | 3 0 0 | 2 9 5 |
+| 7 0 2 | 5 1 9 | 8 6 4 |
++-------+-------+-------+
+| 5 4 7 | 2 0 0 | 6 8 9 |
+| 8 0 3 | 7 6 4 | 1 0 2 |
+| 1 2 6 | 9 0 5 | 3 0 0 |
++-------+-------+-------+
+| 3 7 5 | 1 9 8 | 4 2 6 |
+| 2 1 4 | 6 5 3 | 9 7 8 |
+| 0 6 8 | 4 7 2 | 5 1 3 |
++-------+-------+-------+
+Fitness value is 42
+No solution found
++-------+-------+-------+
+| 4 5 9 | 8 2 6 | 7 3 1 |
+| 6 8 1 | 3 7 4 | 2 9 5 |
+| 7 3 2 | 5 1 9 | 8 6 4 |
++-------+-------+-------+
+| 5 4 7 | 2 3 1 | 6 8 9 |
+| 8 9 3 | 7 6 4 | 1 5 2 |
+| 1 2 6 | 9 8 5 | 3 4 7 |
++-------+-------+-------+
+| 3 7 5 | 1 9 8 | 4 2 6 |
+| 2 1 4 | 6 5 3 | 9 7 8 |
+| 9 6 8 | 4 7 2 | 5 1 3 |
++-------+-------+-------+
+Its fitness value is 2
+
+
+qihou@csslab1h:~$ ./solver 300 1000
+409806701 001307200 030009004 500030680 090000050 026080007 300100020 004603900 908402503
++-------+-------+-------+
+| 4 0 9 | 8 0 6 | 7 0 1 |
+| 0 0 1 | 3 0 7 | 2 0 0 |
+| 0 3 0 | 0 0 9 | 0 0 4 |
++-------+-------+-------+
+| 5 0 0 | 0 3 0 | 6 8 0 |
+| 0 9 0 | 0 0 0 | 0 5 0 |
+| 0 2 6 | 0 8 0 | 0 0 7 |
++-------+-------+-------+
+| 3 0 0 | 1 0 0 | 0 2 0 |
+| 0 0 4 | 6 0 3 | 9 0 0 |
+| 9 0 8 | 4 0 2 | 5 0 3 |
++-------+-------+-------+
+Fitness value is 135
+No solution found
++-------+-------+-------+
+| 4 5 9 | 8 2 6 | 7 3 1 |
+| 6 8 1 | 3 4 7 | 2 9 5 |
+| 2 3 7 | 5 1 9 | 8 6 4 |
++-------+-------+-------+
+| 5 4 2 | 7 3 1 | 6 8 9 |
+| 7 9 3 | 2 4 6 | 1 5 2 |
+| 1 2 6 | 9 8 5 | 3 4 7 |
++-------+-------+-------+
+| 3 7 5 | 1 9 8 | 4 2 8 |
+| 2 6 4 | 6 7 3 | 9 1 6 |
+| 9 1 8 | 4 6 2 | 5 7 3 |
++-------+-------+-------+
+Its fitness value is 9
+qihou@csslab1h:~$ ./solver 300 1000
+100090005 040050090 800302004 208000603 003206400 504000709 700605001 050080030 400030002
++-------+-------+-------+
+| 1 0 0 | 0 9 0 | 0 0 5 |
+| 0 4 0 | 0 5 0 | 0 9 0 |
+| 8 0 0 | 3 0 2 | 0 0 4 |
++-------+-------+-------+
+| 2 0 8 | 0 0 0 | 6 0 3 |
+| 0 0 3 | 2 0 6 | 4 0 0 |
+| 5 0 4 | 0 0 0 | 7 0 9 |
++-------+-------+-------+
+| 7 0 0 | 6 0 5 | 0 0 1 |
+| 0 5 0 | 0 8 0 | 0 3 0 |
+| 4 0 0 | 0 3 0 | 0 0 2 |
++-------+-------+-------+
+Fitness value is 147
+No solution found
++-------+-------+-------+
+| 1 2 7 | 6 9 4 | 3 8 5 |
+| 3 4 6 | 7 5 8 | 2 9 1 |
+| 8 9 5 | 3 1 2 | 7 6 4 |
++-------+-------+-------+
+| 2 7 8 | 8 5 9 | 6 1 3 |
+| 9 1 3 | 2 7 6 | 4 5 8 |
+| 5 6 4 | 1 4 3 | 7 2 9 |
++-------+-------+-------+
+| 7 3 9 | 6 2 5 | 8 4 1 |
+| 6 5 2 | 4 8 1 | 9 3 7 |
+| 4 8 1 | 9 3 7 | 6 5 2 |
++-------+-------+-------+
+Its fitness value is 8
