@@ -11,6 +11,7 @@
 #define POPULATION_H
 
 #include "Puzzle.h"
+#include <vector>
 
 /**
  * @brief Interface for culling and mutating puzzle for each generation
@@ -28,7 +29,7 @@ public:
 	// return the Puzzle with the highest fitness
 	virtual Puzzle* bestIndividual() = 0;
 protected:
-	vector<Puzzle*> puzzles; // contains the puzzles for cull and new generations
+	vector<Puzzle*> puzzles; // contains the puzzles for cull and mutation
 };
 
 #endif // POPULATION_H

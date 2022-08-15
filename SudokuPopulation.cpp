@@ -33,7 +33,6 @@ SudokuPopulation::SudokuPopulation(int size, Sudoku* sudoku)
 		puzzle->setFitness(mFitness);
 		puzzles.push_back(puzzle);
 	}
-	
 }
 
 SudokuPopulation::~SudokuPopulation() {
