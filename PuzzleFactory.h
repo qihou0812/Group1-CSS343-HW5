@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef PUZZLEFACTORY_H
 #define PUZZLEFACTORY_H
 
@@ -16,8 +15,9 @@
 
 class PuzzleFactory {
     public:
-    PuzzleFactory();
-	virtual Puzzle* createPuzzle() = 0;
+        PuzzleFactory() {};
+        virtual ~PuzzleFactory() {};
+	    virtual Puzzle* createPuzzle() = 0;
 };
 
 #endif

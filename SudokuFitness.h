@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef SUDOKUFITNESS_H
 #define SUDOKUFITNESS_H
 

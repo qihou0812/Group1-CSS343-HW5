@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef OFFSPRING_H
 #define OFFSPRING_H
 
@@ -16,7 +15,8 @@
 
 class Offspring {
 public:
-    Offspring();
+	Offspring() {};
+	virtual ~Offspring() {};
 	virtual Puzzle* makeOffSpring(Puzzle* puzzle) = 0;
 };
 

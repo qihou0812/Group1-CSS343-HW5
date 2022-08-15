@@ -7,21 +7,20 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef SUDOKUFACTORY_H
 #define SUDOKUFACTORY_H
 
 #include <iostream>
 #include "PuzzleFactory.h"
 #include "Offspring.h"
+#include "SudokuOffspring.h"
 #include "Sudoku.h"
 #include <string>
 class SudokuFactory : public PuzzleFactory {
-
-    public:
-        SudokuFactory(SudokuOffspring* sudokuOffSpring, Sudoku* sudoku);
-        Puzzle* createPuzzle();
-    private:
+public:
+    SudokuFactory(SudokuOffspring* sudokuOffSpring, Sudoku* sudoku);
+    Puzzle* createPuzzle(Puzzle* puzzle);
+private:
 	SudokuOffspring* sudokuOffSpring;
     Sudoku* default_sudoku;
 };

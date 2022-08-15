@@ -1,22 +1,23 @@
 #include "SudokuPopulation.h"
-
-SudokuPopulation::SudokuPopulation() {}
+#include <queue>
 
 void SudokuPopulation::cull()
 {
 	auto comp = [&](Sudoku* a, Sudoku* b) { return a->getFitness() >b->getFitness(); };
 	priority_queue <Sudoku*, vector<Sudoku*>, decltype(comp)> pq(comp);
-	for (auto temp : puzzleList) {
-		pq.push(temp);
+	for (Puzzle* temp : puzzleList) {
+		Sudoku* sudoku = dynamic_cast<Sudoku*>(temp);
+		pq.push(sudoku);
 		if (pq.size() > population) {
 			Sudoku* cur = pq.top();
 			pq.pop(); // eleminate the least fitness puzzle
-			delete(*cur);
+			delete(cur);
 		}
 	}
 	puzzleList.clear();
 	for (int i = 0; i < population; i++) {
-		puzzleList.push_back(pq[i]);
+		puzzleList.push_back(pq.top());
+		pq.pop();
 	}
 
 
@@ -30,8 +31,10 @@ void SudokuPopulation::newGeneration()
 		if (!cur) {
 			throw std::runtime_error("This puzzle is not an Sudoku");
 		}
+
 		for (int i = 0; i < 10; i++) {
-			Sudoku* new_cur = sudoku_off_spring->makeOffSpring(original_sudoku, cur);
+			Puzzle* puzzle = sudoku_off_spring->makeOffSpring(original_sudoku, cur);
+			Sudoku* new_cur = dynamic_cast <Sudoku*>(puzzle);
 			new_generation.push_back(new_cur);
 		}
 		
@@ -39,13 +42,17 @@ void SudokuPopulation::newGeneration()
 	for (auto temp : puzzleList) {
 		delete(temp);
 	}
-	puzzleList = new_generation;
+	puzzleList.clear();
+	for (auto temp : new_generation) {
+		puzzleList.push_back(temp);
+	}
 	cull();
 }
 
 int SudokuPopulation::bestFitness()
 {
-	Sudoku* best_individual = dynamic_cast<Sudoku*>(this->bestIndividual());
+	Puzzle* best_puzzle = bestIndividual();
+	Sudoku* best_individual = dynamic_cast<Sudoku*>(best_puzzle);
 	return best_individual->getFitness();
 }
 
@@ -61,6 +68,6 @@ Puzzle* SudokuPopulation::bestIndividual() {
 			best_fitness = cur->getFitness();
 			best_Invidual = cur;
 		}
-		return bestIndividual;
 	}
+	return best_Invidual;
 }

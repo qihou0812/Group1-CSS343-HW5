@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef SUDOKUPOPULATION_H
 #define SUDOKUPOPULATION_H
 
@@ -18,15 +17,15 @@
 #include<vector>
 
 class SudokuPopulation : public Population {
-	private vector<Puzzle*> mostFitness; // store the most fit results after multiple generations.
-	private Sudoku* original_sudoku;
-	private SudokuOffSpring* sudoku_off_spring;
+private:
+	Sudoku* original_sudoku;
+	SudokuOffspring* sudoku_off_spring;
 public:
-    SudokuPopulation();
+	SudokuPopulation(int population, int generation) : Population(population, generation) {}
 	void cull();// remove least fitness puzzle
 	void newGeneration();
 	int bestFitness();
-	Puzzle* bestIndividual;
+	Puzzle* bestIndividual();
 };
 
 #endif

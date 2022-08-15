@@ -7,27 +7,23 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef PUZZLE_H
 #define PUZZLE_H
 
 #include <iostream>
-#include <vector>
-#include <sstream>
-#include <cstdlib>
-#include <ctime>
-
-using std::string;
-using std::vector;
-using std::cout;
-using std::endl;
+#include <string>
+using namespace std;
 
 // Puzzle is an interface that only defines operator >> and <<
 class Puzzle {
+public:
+	Puzzle() {};
+	virtual ~Puzzle() {};
 	int fitnessLevel;
-	virtual friend ostream& operator << (ostream& os, const Sudoku& sudoku) = 0;
+	friend std::ostream& operator << (std::ostream& os, const Puzzle& puzzle);
 
-	virtual friend istream& operator >> (istream& os, Sudoku& sudoku) = 0;
+	friend std::istream& operator >> (std::istream& is, Puzzle& puzzle);
+
    
 };
 

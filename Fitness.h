@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef FITNESS_H
 #define FITNESS_H
 
@@ -16,8 +15,9 @@
 
 class Fitness {
     public:
-    Fitness();
-	virtual int howFit(Puzzle* puzzle) = 0;
+        Fitness() {};
+        virtual ~Fitness() {};
+	    virtual int howFit(Puzzle* puzzle) = 0;
 };
 
 #endif

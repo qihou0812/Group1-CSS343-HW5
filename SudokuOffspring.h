@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef SUDOKUOFFSPRING_H
 #define SUDOKUOFFSPRING_H
 
@@ -17,11 +16,9 @@
 #include "Sudoku.h"
 
 class SudokuOffspring : public Offspring {
-    private:
-
-    public:
-        SudokuOffspring();
-	    Puzzle* makeOffSpring (Puzzle* puzzle, Puzzle* original_puzzle);
+public:
+	SudokuOffspring();
+	Puzzle* makeOffSpring (Puzzle* puzzle, Puzzle* original_puzzle);
 };
 
 #endif

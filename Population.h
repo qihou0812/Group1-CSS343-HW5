@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once
 #ifndef POPULATION_H
 #define POPULATION_H
 
@@ -15,6 +14,7 @@
 #include "Puzzle.h"
 #include "Fitness.h"
 #include <deque>
+#include <vector>
 
 using std::deque;
 
@@ -25,11 +25,15 @@ class Population {
         int best_fitness;
 
     public:
-    Population(int population, int generation);
+    Population(int population, int generation) {
+        this->population = population;
+        this->generation = generation;
+    };
+    virtual ~Population() {};
 	virtual void cull() = 0;// remove least fitness puzzle
 	virtual void newGeneration() = 0;
 	virtual int bestFitness() = 0;
-	virtual Puzzle* bestIndividual();
+	virtual Puzzle* bestIndividual() = 0;
 };
 
 #endif
