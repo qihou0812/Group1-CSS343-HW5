@@ -2,8 +2,8 @@
 
 Members:
 
-* Cuc Doan
-* Qihou Zhang
-* Kyle Huang
+* Cuc Doan  
+* Qihou Zhang  
+* Kyle Huang  
 
-  Work has been done equally using VS Code Share
+All the work have done equally by all the members of our group.
