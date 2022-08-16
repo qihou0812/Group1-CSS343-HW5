@@ -1,3 +1,12 @@
+/**
+ * @file SudokuFactory.cpp
+ * @author Qihou Zhang, Cuc Doan, and Kyle Huang
+ * @brief SudokuFactory concrete class (implementation)
+ * @version 0.2
+ * @date 2022-08-01
+ * @copyright Copyright (c) 2022
+ */
+
 #include "SudokuFactory.h"
 
 SudokuFactory::SudokuFactory()

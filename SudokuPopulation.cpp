@@ -1,3 +1,12 @@
+/**
+ * @file SudokuPopulation.cpp
+ * @author Qihou Zhang, Cuc Doan, and Kyle Huang
+ * @brief SudokuPopulation concrete class (implementation)
+ * @version 5.9
+ * @date 2022-08-01
+ * @copyright Copyright (c) 2022
+ */
+
 #include "SudokuPopulation.h"
 #include <algorithm>
 
@@ -24,7 +33,6 @@ SudokuPopulation::SudokuPopulation(int size, Sudoku* sudoku)
 		puzzle->setFitness(mFitness);
 		puzzles.push_back(puzzle);
 	}
-	
 }
 
 SudokuPopulation::~SudokuPopulation() {

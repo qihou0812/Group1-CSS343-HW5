@@ -1,3 +1,12 @@
+/**
+ * @file SudokuFitness.cpp
+ * @author Qihou Zhang, Cuc Doan, and Kyle Huang
+ * @brief SudokuFitness concrete class (implementation)
+ * @version 2.7
+ * @date 2022-08-01
+ * @copyright Copyright (c) 2022
+ */
+
 #include "SudokuFitness.h"
 #include "Sudoku.h"
 

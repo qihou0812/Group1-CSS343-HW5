@@ -1,3 +1,12 @@
+/**
+ * @file SudokuFactory.h
+ * @author Qihou Zhang, Cuc Doan, and Kyle Huang
+ * @brief SudokuFactory concrete class (header)
+ * @version 0.2
+ * @date 2022-08-01
+ * @copyright Copyright (c) 2022
+ */
+
 #ifndef SUDOKU_FACTORY_H
 #define SUDOKU_FACTORY_H
 
