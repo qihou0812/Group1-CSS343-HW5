@@ -7,6 +7,8 @@ the algorithm iterates for 10k generations, it doesn’t still find the solution
 In some time, GA can not find the solution, and it only find the best solution in some
 extent. For some puzzle, one running of the algorithm can find the solution, but another
 running may not find the solution.
+
+
 2. Build and Run
 Build:
 g++ -std=c++11 -o solver *.cpp
@@ -14,16 +16,13 @@ Run:
 ./solver 300 1000
 First number is the size of the population. Second number is the maximum number of
 generations.
-3.Issues
 
 
+3.Bugs & Issues
+Did not find any bugs/issues.
 
 
-
-
-
-
-
+4. Screenshots (*copy-and-paste from terminal*)
 qihou@csslab1h:~$ g++ -std=c++11 *.cpp -o solver
 qihou@csslab1h:~$ ls
 Driver.cpp   finalReport.txt  Offspring.h   PROJECT-README.md  Puzzle.h   solver      SudokuFactory.cpp  SudokuFitness.cpp  Sudoku.h             SudokuOffspring.h     SudokuPopulation.h
