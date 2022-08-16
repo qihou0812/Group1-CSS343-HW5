@@ -16,14 +16,18 @@
 class SudokuFactory: public PuzzleFactory
 {
 public:
+	// constructor: create new offpspring
 	SudokuFactory();
+	// destructor: deletes offspring
 	~SudokuFactory();
+	// set current puzzle
 	void setCurrentPuzzle(Puzzle*);
+	// create puzzle
 	Puzzle* createPuzzle() override;
 
 private:
-	Puzzle* puzzle;
-	Offspring* offSpring;
+	Puzzle* puzzle; // current puzzle
+	Offspring* offSpring; // current offspring
 };
 
 #endif // SUDOKU_FACTORY_H
