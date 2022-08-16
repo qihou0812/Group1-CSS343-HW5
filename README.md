@@ -3,5 +3,6 @@
 Members:
 * Cuc Doan  
 * Qihou Zhang  
-* Kyle Huang
+* Kyle Huang  
+
 All the work have done equally by all the members of our group.
