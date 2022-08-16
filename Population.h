@@ -2,7 +2,7 @@
 #define POPULATION_H
 
 #include "Puzzle.h"
-
+#include <vector>
 class Population
 {
 public:
