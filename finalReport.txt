@@ -22,11 +22,6 @@ generations.
 Did not find any bugs/issues.
 
 
-4. Screenshots
-3.Bugs & Issues
-Did not find any bugs/issues.
-
-
 4. Screenshots (*copy-and-paste from terminal*)
 qihou@csslab1h:~$ g++ -std=c++11 *.cpp -o solver
 qihou@csslab1h:~$ ls
